@@ -80,4 +80,5 @@ crashlytics.properties
 crashlytics-build.properties
 
 ### Composer ###
+bin/composer/
 vendor/
