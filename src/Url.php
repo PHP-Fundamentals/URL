@@ -1,5 +1,5 @@
 <?php
-namespace php_fundamentals\http;
+namespace php_fundamentals\url;
 
 use League\Url\Url as LeagueUrl;
 use Psr\Http\Message\UriInterface;
@@ -10,7 +10,10 @@ class Url implements UriInterface {
     /** @var LeagueUrl wrapped / adapted league/Url object */
     private $url;
 
-    public function __construct (LeagueUrl $url) {
+    public function __construct (LeagueUrl $url = null) {
+        if ($url === null) {
+            $url = new LeagueUrl();
+        }
         $this->setUrl($url);
     }
 
@@ -86,9 +89,9 @@ class Url implements UriInterface {
     public function getUserInfo () {
         return $this->getUrl()
                     ->getUser()
-                    ->__toString().$this->getUrl()
-                                        ->getPass()
-                                        ->__toString();
+                   ->getUriComponent().$this->getUrl()
+                                            ->getPass()
+                                            ->getUriComponent();
     }
 
     /**

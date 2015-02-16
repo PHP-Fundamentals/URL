@@ -1,5 +1,5 @@
 <?php
-namespace php_fundamentals\http;
+namespace php_fundamentals\url;
 
 use League\Url\Url as LeagueUrl;
 
